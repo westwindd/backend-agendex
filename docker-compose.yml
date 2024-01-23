@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - php
+
+  php:
+    image: php:7.4-apache
+    volumes:
+      - .:/var/www/html
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: 
+      MYSQL_DATABASE: 
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_PASSWORD: 
+    ports:
+      - 
+    hostname: 
